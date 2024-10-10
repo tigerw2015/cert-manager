@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cert-manager-operator
+  namespace: argocd
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: cert-manager-operator
+  source:
+    repoURL: https://github.com/tigerw2015/cert-manager.git
+    path: operator/base
+    targetRevision: HEAD
+  sources: []
+  project: default
